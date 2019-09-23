@@ -1,15 +1,18 @@
-package vetores;
+package vetores.teste;
+import vetores.Vetor;
 
-public class MainVetor {
+// aumenta a capacidade do vetor
+
+public class Aula08 {
 
 	public static void main(String[] args) {
-		Vetor vetor = new Vetor(10);
+		
+		Vetor vetor = new Vetor(3);
 		
 		vetor.adiciona("B");
 		vetor.adiciona("C");
 		vetor.adiciona("E");
 		vetor.adiciona("F");
-		vetor.adiciona("G");
 		
 		
 		System.out.println(vetor); //exibe vetor
@@ -20,7 +23,7 @@ public class MainVetor {
 		
 		vetor.adiciona(3, "D");
 		System.out.println(vetor);
-				
+
 	}
 
 }

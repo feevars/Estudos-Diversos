@@ -1,26 +1,30 @@
-package vetores;
+package vetores.teste;
+import vetores.Vetor;
 
-public class MainVetor {
+// aumenta a capacidade do vetor
+
+public class Aula09 {
 
 	public static void main(String[] args) {
-		Vetor vetor = new Vetor(10);
+		
+		Vetor vetor = new Vetor(3);
 		
 		vetor.adiciona("B");
-		vetor.adiciona("C");
+		vetor.adiciona("G");
+		vetor.adiciona("D");
 		vetor.adiciona("E");
 		vetor.adiciona("F");
-		vetor.adiciona("G");
-		
 		
 		System.out.println(vetor); //exibe vetor
 		
-		vetor.adiciona(0, "A");
+		vetor.remove(1);
 		
 		System.out.println(vetor); //exibe a terceira posição da busca
 		
-		vetor.adiciona(3, "D");
+		vetor.adiciona(0, "A");
+		vetor.adiciona(2, "C");
 		System.out.println(vetor);
-				
+
 	}
 
 }
