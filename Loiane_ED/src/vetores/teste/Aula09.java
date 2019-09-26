@@ -1,5 +1,5 @@
 package vetores.teste;
-import vetores.Vetor;
+import estruturas.Vetor;
 
 // aumenta a capacidade do vetor
 

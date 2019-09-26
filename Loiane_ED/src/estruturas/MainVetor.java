@@ -1,4 +1,4 @@
-package vetores;
+package estruturas;
 
 public class MainVetor {
 

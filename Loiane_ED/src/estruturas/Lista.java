@@ -1,18 +1,24 @@
-package vetores;
+package estruturas;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 
-public class VetorObjetos {
+public class Lista <T> { //<> = diamond, do generics e o <T> de type
 
-	private Object[] elementos;
+	private T[] elementos;
 	private int tamanho;
 
-	public VetorObjetos (int capacidade) {
-		this.elementos = new Object[capacidade];
+	public Lista (int capacidade) {
+		this.elementos = (T[]) new Object[capacidade]; //melhor solução
 	}
 
+	public Lista (int capacidade, Class<T> tipoClasse) {
+		this.elementos = (T[]) Array.newInstance(tipoClasse, capacidade);
+		this.tamanho = 0;
+	}
 
-	public boolean adiciona(Object elemento) {
+	
+	public boolean adiciona(T elemento) {
 		this.aumentaCapacidade();
 		if (this.tamanho < this.elementos.length) {
 			this.elementos[this.tamanho] = elemento;
@@ -26,7 +32,7 @@ public class VetorObjetos {
 	//outro no meio do vetor
 	// 0 1 2 3 4 5 6    = tamanho é 5
 	// B C E F G + +
-	public boolean adiciona(int posicao, Object elemento) {
+	public boolean adiciona(int posicao, T elemento) {
 
 		//verifica se a posição existe
 		if(!(posicao>=0 && posicao < tamanho)) {
@@ -49,7 +55,7 @@ public class VetorObjetos {
 	//Aumenta a capacidade do vetor.
 	private void aumentaCapacidade() {
 		if (this.tamanho == this.elementos.length) {
-			Object[] elementosNovos = new Object[this.elementos.length*2];
+			T[] elementosNovos = (T[]) new Object[this.elementos.length*2];
 			for (int i = 0; i < this.elementos.length; i++) {
 				elementosNovos[i] = this.elementos[i];
 			}
@@ -65,7 +71,7 @@ public class VetorObjetos {
 		return this.elementos[posicao];
 	}
 
-	public int busca(Object elemento) {
+	public int busca(T elemento) {
 		for (int i = 0; i < this.tamanho; i++) {
 			if (this.elementos[i].equals(elemento)) {
 				return i;
