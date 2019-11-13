@@ -3,8 +3,10 @@ package estruturas.base;
 import java.lang.reflect.Array;
 
 public class EstruturaEstatica <T> {
+
 	protected T[] elementos;
 	protected int tamanho;
+
 
 	public EstruturaEstatica (int capacidade) {
 		this.elementos = (T[]) new Object[capacidade]; //melhor solução
@@ -22,22 +24,25 @@ public class EstruturaEstatica <T> {
 			this.tamanho++;
 			return true;
 		}
+		//		estaCheia();
 		return false;
 	}
 
-	protected boolean adiciona(int posicao, T elemento) {
-		if(!(posicao>=0 && posicao < tamanho)) {
-			throw new IllegalArgumentException("Posição inválida!");
-		}
-		this.aumentaCapacidade();
+	//Lista apenas 
+	//	protected boolean adiciona(int posicao, T elemento) {
+	//		if(!(posicao>=0 && posicao < tamanho)) {
+	//			throw new IllegalArgumentException("Posição inválida!");
+	//		}
+	//		this.aumentaCapacidade();
+	//
+	//		for(int i = this.tamanho-1; i>=posicao; i--) {
+	//			this.elementos[i+1] = this.elementos[i];
+	//		}
+	//		this.elementos[posicao] = elemento;
+	//		this.tamanho++;
+	//		return false;
+	//	}
 
-		for(int i = this.tamanho-1; i>=posicao; i--) {
-			this.elementos[i+1] = this.elementos[i];
-		}
-		this.elementos[posicao] = elemento;
-		this.tamanho++;
-		return false;
-	}
 	public int tamanho() {
 		return this.tamanho;
 	}
@@ -51,35 +56,41 @@ public class EstruturaEstatica <T> {
 			this.elementos = elementosNovos;
 		}
 	}
-	
-	public void remove(int posicao) {
-		if(!(posicao>=0 && posicao < tamanho)) {
-			throw new IllegalArgumentException("Posição inválida!");
-		}
 
-		for(int i = posicao; i<this.tamanho-1; i++) {
-			this.elementos[i] = this.elementos[i+1];
-		}
-		this.tamanho--;
-	}
+	//	public void remove(int posicao) {
+	//		if(!(posicao>=0 && posicao < tamanho)) {
+	//			throw new IllegalArgumentException("Posição inválida!");
+	//		}
+	//
+	//		for(int i = posicao; i<this.tamanho-1; i++) {
+	//			this.elementos[i] = this.elementos[i+1];
+	//		}
+	//		this.tamanho--;
+	//	}
 
 	public boolean estaVazia() {
 		return this.tamanho == 0;
 	}
 
-	@Override
-	public String toString() {
-		StringBuilder s = new StringBuilder();
-		s.append("[");
-		for (int i = 0; i < this.tamanho-1; i++) {
-			s.append(this.elementos[i]);
-			s.append(", ");
-		}
-		if (this.tamanho>0) {
-			s.append(this.elementos[this.tamanho-1]);
-		}
-		s.append("]");
-		return s.toString();
+	public void estaCheia() {
+		System.out.println("Não há espaços disponíveis.");
 	}
+
+	
+
+	//	@Override
+	//	public String toString() {
+	//		StringBuilder s = new StringBuilder();
+	//		s.append("[");
+	//		for (int i = 0; i < this.tamanho-1; i++) {
+	//			s.append(this.elementos[i]);
+	//			s.append(", ");
+	//		}
+	//		if (this.tamanho>0) {
+	//			s.append(this.elementos[this.tamanho-1]);
+	//		}
+	//		s.append("]\n");
+	//		return s.toString();
+	//	}
 
 }
