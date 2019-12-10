@@ -13,5 +13,10 @@ public class Peao extends ChessPiece {
 	public String toString() {
 		return "P";
 	}
+	@Override
+	public boolean[][] possibleMoves() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

@@ -1,4 +1,4 @@
-package chess.pieces;
+ package chess.pieces;
 
 import boardgame.Board;
 import chess.ChessPiece;
@@ -12,6 +12,11 @@ public class Horse extends ChessPiece {
 	@Override
 	public String toString() {
 		return "H";
+	}
+	@Override
+	public boolean[][] possibleMoves() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
