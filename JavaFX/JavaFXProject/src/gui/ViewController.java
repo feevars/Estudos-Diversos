@@ -1,12 +1,14 @@
 package gui;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
 import gui.util.Alerts;
 import gui.util.Constraints;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -26,26 +28,33 @@ public class ViewController implements Initializable{
 	private Label labelSaldoPoupanca;
 
 	@FXML
-	private Label labelSaldoDeposito;
+	private Label labelSaldoCorrente;
 	
 	@FXML
 	private Button btDeposito;
 	
 	@FXML
-	private ComboBox<Account> comboBoxAccount;
+	private ComboBox<Account> comboBoxAccountType;
 	
 	private ObservableList<Account> obsList;
 
-	private double saldoContaCorrente;
+	private double saldoCorrente;
 	private double saldoPoupanca;
-
-	public void onBtSumAction() {
+	
+	@FXML
+	public void onButtonDepositAction() {
 		try {
 			Locale.setDefault(Locale.US);
 			double deposito = Double.parseDouble(txtDeposito.getText());
 
-			saldo += deposito;
-			labelSaldo.setText(String.format("%.2f", saldo));
+			if (comboBoxAccountType.equals("Poupança")) {
+				saldoPoupanca += deposito;
+			} else {
+				saldoCorrente += deposito;
+			}
+			
+			labelSaldoCorrente.setText(String.format("%.2f", saldoCorrente));
+			labelSaldoPoupanca.setText(String.format("%.2f", saldoPoupanca));
 		} catch (NumberFormatException e) {
 			Alerts.showAlert("Error", "Parse error", e.getMessage(), 
 					AlertType.ERROR);
@@ -57,7 +66,11 @@ public class ViewController implements Initializable{
 		Constraints.setTextFieldDouble(txtDeposito);
 		Constraints.setTextFieldMaxLength(txtDeposito, 10);
 		
-		List<Account> list = new Arraylist<>();
+		List<Account> list = new ArrayList<>();
+		list.add(new Account("Poupança"));
+		list.add(new Account("Conta Corrente"));
 		
+		obsList = FXCollections.observableArrayList(list);
+		comboBoxAccountType.setItems(obsList);
 	}
 }

@@ -4,43 +4,27 @@ import java.io.Serializable;
 
 public class Account implements Serializable {
 	private static final long serialVersionUID = 1L;
-	private Integer id;
-	private String name;
-	private String email;
+	
+	private String type;
 
-	public Account(Integer id, String name, String email) {
-		this.id = id;
-		this.name = name;
-		this.email = email;
+	public Account(String type) {
+		this.type = type;
 	}
 
-	public Integer getId() {
-		return id;
+	public String getType() {
+		return type;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
+	public void setType(String type) {
+		this.type = type;
 	}
 
 	@Override
 	public String toString() {
-		return "Person [id=" + id + ", name=" + name + ", email=" + email + "]";
+		return type;
 	}
+
+
+
 
 }

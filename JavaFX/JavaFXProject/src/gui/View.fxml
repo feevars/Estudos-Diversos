@@ -9,7 +9,7 @@
 
 <AnchorPane prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ViewController">
    <children>
-      <Button fx:id="btDeposito" layoutX="206.0" layoutY="68.0" mnemonicParsing="false" onAction="#onBtSumAction" text="Depositar">
+      <Button fx:id="btDeposito" layoutX="206.0" layoutY="68.0" mnemonicParsing="false" onAction="#onButtonDepositAction" text="Depositar">
          <font>
             <Font name="Comic Sans MS" size="26.0" />
          </font></Button>
@@ -18,11 +18,11 @@
             <Font name="Arial Black" size="14.0" />
          </font></Label>
       <TextField fx:id="txtDeposito" layoutX="14.0" layoutY="70.0" prefHeight="25.0" prefWidth="126.0" promptText="Valor de depósito" />
-      <Label fx:id="labelSaldo" layoutX="155.0" layoutY="167.0" prefHeight="17.0" prefWidth="38.0">
+      <Label fx:id="labelSaldoPoupanca" layoutX="155.0" layoutY="167.0" prefHeight="17.0" prefWidth="38.0">
          <font>
             <Font size="20.0" />
          </font></Label>
-      <ComboBox layoutX="14.0" layoutY="108.0" prefHeight="25.0" prefWidth="126.0" promptText="Select Account" />
+      <ComboBox fx:id="comboBoxAccountType" layoutX="14.0" layoutY="108.0" prefHeight="25.0" prefWidth="126.0" promptText="Select Account" />
       <Label layoutX="14.0" layoutY="171.0" prefHeight="26.0" prefWidth="141.0" text="Total Poupança:">
          <font>
             <Font size="17.0" />
@@ -33,7 +33,7 @@
             <Font size="17.0" />
          </font>
       </Label>
-      <Label layoutX="186.0" layoutY="224.0" prefHeight="30.0" prefWidth="38.0">
+      <Label fx:id="labelSaldoCorrente" layoutX="186.0" layoutY="224.0" prefHeight="30.0" prefWidth="38.0">
          <font>
             <Font size="20.0" />
          </font>
