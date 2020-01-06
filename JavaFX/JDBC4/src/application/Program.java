@@ -21,10 +21,7 @@ public class Program {
 					+ "WHERE "
 					+ "Id = ?");
 			
-			st.setInt(1	, 8);
-					
-				
-			
+			st.setInt(1	, 8); 
 			
 			int rowsAffected = st.executeUpdate();
 			
