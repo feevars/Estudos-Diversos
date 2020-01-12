@@ -16,31 +16,37 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import model.entities.Account;
 
-public class ViewController implements Initializable{
+public class MainViewController implements Initializable{
 
 	@FXML
-	private TextField txtDeposito;
-
-	@FXML
-	private Label labelSaldoPoupanca;
-
-	@FXML
-	private Label labelSaldoCorrente;
+	private MenuItem menuItemSeller;
 	
 	@FXML
-	private Button btDeposito;
+	private MenuItem menuItemDepartment;
 	
 	@FXML
-	private ComboBox<Account> comboBoxAccountType;
+	private MenuItem menuItemAbout;
 	
-	private ObservableList<Account> obsList;
-
-	private double saldoCorrente;
-	private double saldoPoupanca;
+	@FXML
+	public void onMenuItemSellerAction() {
+		System.out.println("OnMenuItemSellerAction");
+	}
 	
+	@FXML
+	public void OnMenuItemDepartmentAction() {
+		System.out.println("OnMenuItemDepartmentAction");
+	}
+	
+	@FXML
+	public void onMenuItemAboutAction() {
+		System.out.println("OnMenuItemAboutAction");
+	}
+	
+	/*
 	@FXML
 	public void onButtonDepositAction() {
 		try {
@@ -60,9 +66,11 @@ public class ViewController implements Initializable{
 					AlertType.ERROR);
 		}
 	}
+	*/
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
+		/*
 		Constraints.setTextFieldDouble(txtDeposito);
 		Constraints.setTextFieldMaxLength(txtDeposito, 10);
 		
@@ -72,5 +80,5 @@ public class ViewController implements Initializable{
 		
 		obsList = FXCollections.observableArrayList(list);
 		comboBoxAccountType.setItems(obsList);
-	}
+	*/}
 }
