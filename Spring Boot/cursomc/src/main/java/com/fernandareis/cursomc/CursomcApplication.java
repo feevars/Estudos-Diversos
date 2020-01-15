@@ -9,10 +9,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.fernandareis.cursomc.domain.Categoria;
 import com.fernandareis.cursomc.domain.Cidade;
+import com.fernandareis.cursomc.domain.Cliente;
+import com.fernandareis.cursomc.domain.Endereco;
 import com.fernandareis.cursomc.domain.Estado;
 import com.fernandareis.cursomc.domain.Produto;
+import com.fernandareis.cursomc.domain.enums.TipoCliente;
 import com.fernandareis.cursomc.repositories.CategoriaRepository;
 import com.fernandareis.cursomc.repositories.CidadeRepository;
+import com.fernandareis.cursomc.repositories.ClienteRepository;
+import com.fernandareis.cursomc.repositories.EnderecoRepository;
 import com.fernandareis.cursomc.repositories.EstadoRepository;
 import com.fernandareis.cursomc.repositories.ProdutoRepository;
 
@@ -30,6 +35,12 @@ public class CursomcApplication implements CommandLineRunner{
 	
 	@Autowired
 	private CidadeRepository cidadeRepository;
+	
+	@Autowired
+	private ClienteRepository clienteRepository;
+	
+	@Autowired
+	private EnderecoRepository enderecoRepository;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(CursomcApplication.class, args);
@@ -70,6 +81,18 @@ public class CursomcApplication implements CommandLineRunner{
 		produtoRepository.saveAll(Arrays.asList(p1, p2, p3));
 		estadoRepository.saveAll(Arrays.asList(est1, est2));
 		cidadeRepository.saveAll(Arrays.asList(c1, c2, c3, c4));
+		
+		Cliente cli1 = new Cliente(null, "Fernanda Reis", "fp.reis@live.com", "388859685-75", TipoCliente.PESSOAFISICA);
+		
+		cli1.getTelefones().addAll(Arrays.asList("959698567", "1120473807"));
+		
+		Endereco e1 = new Endereco(null, "Rua Taioaba", "67", "casa", "Mooca", "03170-070", cli1, c3);
+		Endereco e2 = new Endereco(null, "Avenida Clodoaldo Norberto Buchetti", "20", "casa", "Jardim Real", "01460-070", cli1, c3);
+		
+		cli1.getEnderecos().addAll(Arrays.asList(e1, e2));
+		
+		clienteRepository.saveAll(Arrays.asList(cli1));
+		enderecoRepository.saveAll(Arrays.asList(e1, e2));
 		
 	}
 
