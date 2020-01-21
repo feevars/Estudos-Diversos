@@ -2,6 +2,7 @@ package gui;
 
 import java.io.IOException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -83,6 +84,7 @@ public class SellerListController implements Initializable, DataChangeListener {
 	public void initialize(URL url, ResourceBundle rb) {
 		initializeNodes();
 	}
+
 	
 	private void initializeNodes() {
 		tableColumnId.setCellValueFactory(new PropertyValueFactory<>("id"));
